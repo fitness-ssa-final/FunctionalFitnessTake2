@@ -1,6 +1,8 @@
 package gov.ssa.functionalfitness.config;
 
 import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +12,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import gov.ssa.functionalfitness.entity.User;
-
-import org.apache.commons.dbcp.BasicDataSource;
 
 @Configuration
 @EnableTransactionManagement

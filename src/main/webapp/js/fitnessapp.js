@@ -1,4 +1,3 @@
-
 var populateData= $.get('https://wger.de/api/v2/exercise.json/?language=2&limit=1000000&equipment=3',
         function(data) {
             var muscleCategories = [{

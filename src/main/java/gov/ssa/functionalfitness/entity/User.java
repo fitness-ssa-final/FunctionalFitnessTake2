@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,7 +13,6 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-//	@GeneratedValue
 	@Column(name = "user_profile_id")
 	private int profileID;
 
@@ -36,15 +34,14 @@ public class User implements Serializable {
 	@Column(name = "user_equipment")
 	private String equipment;
 
-	@Column(name = "user_age", nullable=true)
+	@Column(name = "user_age", nullable = true)
 	private int age;
 
-	@Column(name = "user_weight", nullable=true)
+	@Column(name = "user_weight", nullable = true)
 	private double weight;
 
-	@Column(name = "user_sex",nullable=true)
+	@Column(name = "user_sex", nullable = true)
 	private String sex;
-
 
 	public int getProfileID() {
 		return profileID;
