@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import gov.ssa.functionalfitness.dao.IUserDAO;
 import gov.ssa.functionalfitness.entity.User;
+
 @Service
 @Transactional
 public class UserService implements IUserService {
