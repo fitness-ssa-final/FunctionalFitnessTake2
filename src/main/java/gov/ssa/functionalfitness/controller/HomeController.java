@@ -2,6 +2,8 @@ package gov.ssa.functionalfitness.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -73,4 +75,20 @@ public class HomeController {
 		userService.deleteUser(profileID);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+	
+	@RequestMapping(value = "/userlogin", method = RequestMethod.POST)
+	public ResponseEntity<List<User>> userLogin(@RequestBody User user, HttpSession sessionObj){
+		List<User> account = userService.login(user.getPassword(), user.getEmail());
+	
+		
+		String isValid = user.getPassword();
+		
+		if(!(account.get(0).getPassword().equals(isValid))) {
+			return new ResponseEntity<List<User>>(HttpStatus.CONFLICT);
+		}else{
+			sessionObj.setAttribute("user", account.get(0));
+			return new ResponseEntity<List<User>>(HttpStatus.OK);
+		}
+		
+	}		
 }
