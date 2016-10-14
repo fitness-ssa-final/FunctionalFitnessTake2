@@ -22,16 +22,16 @@ public class User implements Serializable {
 	@Column(name = "user_password")
 	private String password;
 
-	@Column(name = "user_first_name")
+	@Column(name = "user_first_name",nullable = true)
 	private String firstName;
 
-	@Column(name = "user_last_name")
+	@Column(name = "user_last_name",nullable = true)
 	private String lastName;
 
 	@Column(name = "user_email")
 	private String email;
 
-	@Column(name = "user_equipment")
+	@Column(name = "user_equipment",nullable = true)
 	private String equipment;
 
 	@Column(name = "user_age", nullable = true)

@@ -1,211 +1,103 @@
 <!DOCTYPE html>
-<html>
-<head>
-
-<title>f.IT.ness</title>
-<link rel="stylesheet" type="text/css"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-<style>
-h1 {
-	font-family: Impact, Charcoal, sans-serif;
-	font-weight: bold;
-	font-size: 90px;
-	color: #f2301a;
-	padding-top: 2%;
-}
-
-h2 {
-	margin-left: 10%;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 30px;
-	color: #f2301a;
-}
-
-h3 {
-	float: left;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 30px;
-	color: #4292f4;
-}
-
-#logoimg {
-	float: left;
-	margin-left: 8%;
-	position: absolute;
-	top: 20px;
-	width: 200px;
-	height: 100px;
-}
-
-#existingbtn {
-	margin-left: 66%;
-	margin-bottom: 10%;
-	box-shadow: 3px 2px 5px #000000;
-	background-color: #4292f4;
-	color: #f2301a;
-}
-
-#newbtn {
-	box-shadow: 3px 2px 5px #000000;
-	background-color: #f2301a;
-	color: #4292f4;
-}
-
-#mypro {
-	float: right;
-	margin-right: 7%;
-	margin-top: 3%;
-	top: 10px;
-	box-shadow: 3px 2px 5px #000000;
-}
-
-.bg-1 {
-	background: -webkit-linear-gradient(left, #4292f4, #f2301a);
-	background: -o-linear-gradient(left, #4292f4, #f2301a);
-	background: -moz-linear-gradient(left, #4292f4, #f2301a);
-	background: linear-gradient(to right, #4292f4, #f2301a);
-}
-
-.container-fluid {
-	padding-bottom: 75px;
-}
-
-.bg-2 {
-	background-image:
-		url("http://www.hardworkout.no/wp-content/uploads/2016/03/maxresdefault.jpg");
-	padding-bottom-bottom: 7%;
-}
-
-.bg-3 {
-	background: -webkit-linear-gradient(left, #f2301a, #4292f4);
-	background: -o-linear-gradient(left, #f2301a, #4292f4);
-	background: -moz-linear-gradient(left, #f2301a, #4292f4);
-	background: linear-gradient(to right, #f2301a, #4292f4);
-}
-</style>
-</head>
-<body>
-	<div class="container-fluid bg-1 text-center">
-		<button id="mypro" class="btn btn-lg">
-			My Profile <span class="glyphicon glyphicon-user"></span>
-		</button>
-		<h1 align="center">FUNCTIONAL f.IT.ness</h1>
-		<div id="logoimg">
-			<img src="/img/logomakr_5hawio_360.png" />
-			
-		</div>
-	</div>
-	</div>
-	<div class="container-fluid bg-2">
-		<br /> <br />
-		<h2>New User</h2>
-		<br />
-		<form style="width: 60%; margin-left: 10%;">
-			<div class="form-group">
-				<label style="color: #f2301a;" for="firstName"
-					class="col-sm-2 control-label">First Name</label>
-				<div class="col-sm-10">
-					<input type="text" ng-model="user.firstName" class="form-control"
-						id="firstName" name="firstName" placeholder="First Name" required>
-				</div>
-			</div>
-			<br /> <br /> <br />
-			<div class="form-group"border-spacing:5em;>
-				<label style="color: #f2301a;" for="lastName"
-					class="col-sm-2 control-label">Last Name</label>
-				<div class="col-sm-10">
-					<input type="text" ng-model="user.lastName" class="form-control"
-						id="lastName" name="lastName" placeholder="Last Name" required>
-				</div>
-			</div>
-			<br /> <br />
-			<div class="form-group">
-				<label style="color: #f2301a;" for="email"
-					class="col-sm-2 control-label">Email Address</label>
-				<div class="col-sm-10">
-					<input type="email" ng-model="user.email" class="form-control"
-						id="email" name="email" placeholder="user@example.com" required>
-				</div>
-			</div>
-			<br /> <br />
-			<div class="form-group"border-spacing:5em;>
-				<label style="color: #f2301a;" for="username"
-					class="col-sm-2 control-label">Username</label>
-				<div class="col-sm-10">
-					<input type="text" ng-model="user.username" class="form-control"
-						id="username" name="username" placeholder="Username" required>
-				</div>
-			</div>
-			<br /> <br />
-			<div class="form-group">
-				<label style="color: #f2301a;" for="password"
-					class="col-sm-2 control-label">Password</label>
-				<div class="col-sm-10">
-					<input type="text" ng-model="user.password" class="form-control"
-						id="password" name="password" aria-describedby="helpBlock"
-						required=""
-						placeholder="8 characters at least 1 uppercase 1 number & 1 special character">
-				</div>
-			</div>
-			<br /> <br />
-			<div class="form-group">
-				<label style="color: #f2301a;" for="password"
-					class="col-sm-2 control-label">Confirm Password</label>
-				<div class="col-sm-10">
-					<input type="text" ng-model="user.password" class="form-control"
-						id="password" name="password" aria-describedby="helpBlock"
-						required="" placeholder="Repeat Password">
-				</div>
-				<div class="form-group">
-					<br /> <br /> <br />
-					<div class="col-sm-offset-2 col-sm-10">
-						<span ng-show="addFlag">
-							<button id="newbtn"
-								ng-click="addUser(user.firstName, user.lastName, user.email, user.homePhone, user.cellPhone, user.password)"
-								type="submit" class="btn btn-lg">
-								Submit <span class="glyphicon glyphicon-fire"></span>
-							</button>
-						</span>
-					</div>
-				</div>
-			</div>
-			<br /> <br /> <br /> <br /> <br />
-		</form>
-	</div>
-	<div class="container-fluid bg-3">
-		<h3 style="margin-left: 10%;">User Login</h3>
-		<br /> <br /> <br /> <br /> <br />
-		<form style="width: 60%; margin-left: 11%;">
-			<div class="form-group"border-spacing:5em;>
-				<label style="color: #4292f4; padding-left: 5%;" for="username"
-					class="col-sm-2 control-label">Username</label>
-				<div class="col-sm-4">
-					<input type="text" ng-model="user.username" class="form-control"
-						id="username" name="username" placeholder="Username" required>
-					<br />
-				</div>
-			</div>
-			<div class="form-group">
-				<label style="color: #4292f4; padding-left: 5%;" for="password"
-					class="col-sm-2 control-label">Password</label>
-				<div class="col-sm-4">
-					<input type="text" ng-model="user.password" class="form-control"
-						id="password" name="password" aria-describedby="helpBlock"
-						placeholder="Password" required=""> <br /> <br /> <span
-						ng-show="addFlag">
-						<button id="existingbtn" ng-click="loginUser" type="submit"
-							class="btn btn-lg">
-							Submit <span class="glyphicon glyphicon-fire"></span>
-						</button>
-					</span>
-				</div>
-			</div>
-		</form>
-	</div>
-</body>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
-
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+    <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
+        <title>f.IT.ness Identity Verification</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/animate-custom.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Login or Register
+                    <span><br>and enter<br></span>Functional f.IT.ness</h1>
+            </header>
+            <section>
+                <div id="container_demo">
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form action="mysuperscript.php" autocomplete="on">
+                                <h1>Log in</h1>
+                                <p>
+                                    <label for="username" class="uname" data-icon="u">
+                                        Your username
+                                    </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername"/>
+                                </p>
+                                <p>
+                                    <label for="password" class="youpasswd" data-icon="p">
+                                        Your password
+                                    </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p class="login button">
+                                    <input type="submit" value="Login"/>
+                                </p>
+                                <p class="change_link">
+                                    Not a member yet?
+                                    <a href="#toregister" class="to_register">Sign up</a>
+                                </p>
+                            </form>
+                        </div>
+                        <!-- Register new user form -->
+                        <div id="register" class="animate form">
+                            <form action="mysuperscript.php" id="signup" autocomplete="on">
+                                <h1>
+                                    Sign up
+                                </h1>
+                                <p>
+                                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690"/>
+                                </p>
+                                <p>
+                                    <label for="emailsignup" class="youmail" data-icon="e">Your email</label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/>
+                                </p>
+                                <p>
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password</label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p>
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password</label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" oninput="check(this)" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <!-- script block for password confirmation match -->
+                                <script language='javascript' type='text/javascript'>
+                                    function check(input) {
+                                        if (input.value != document.getElementById('passwordsignup').value) {
+                                            input.setCustomValidity('Passwords must match.');
+                                        } else {
+                                            // input is valid -- reset the error message
+                                            input.setCustomValidity('');
+                                        }
+                                    }
+                                </script>
+                                <p class="signin button">
+                                    <input type="submit" button id="submitButton" value="Sign up"/>
+                                </p>
+                                <p class="change_link">
+                                    Already a member?
+                                    <a href="#tologin" class="to_register">
+                                        Go and log in
+                                    </a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
 </html>
