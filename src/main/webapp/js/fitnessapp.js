@@ -1,5 +1,9 @@
-$(function() {
+$("#reset-table").click(function () {
+  location.reload();});
 
+$("#equipment-submit").click(function() {
+
+//$("#tableData").empty();
 
     //equipment selectd
     var equipment = $(".equipment:checked");
@@ -30,9 +34,15 @@ $(function() {
         $.each(exerciseData, function(key, val) {
             if (typeof val.name != 'undefined') {
                 console.log(val.name + " - " + val.description);
+
                 $('#tableData').append("<tr><td>" + val.name + "</td><td>" + val.description + "</td><td>" + val.category+ "</td><td>" + val.equipment + "</td></tr>");
             }
+
         });
     });
+
+    setTimeout(function() {
+        $('#exerciseTable').DataTable();
+      },3500);
 
 });
