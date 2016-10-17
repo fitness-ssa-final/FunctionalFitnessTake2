@@ -34,6 +34,12 @@ public class HomeController {
 		mv.setViewName("home");
 		return mv;
 	}
+	@RequestMapping("/welcome")
+	public ModelAndView welcome(ModelAndView mv) {
+		mv.setViewName("welcome");
+		return mv;
+	}
+	
 
 	@RequestMapping("/exercises")
 	public ModelAndView exercises(ModelAndView mv) {
