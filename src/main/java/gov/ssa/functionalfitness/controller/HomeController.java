@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +32,12 @@ public class HomeController {
 
 	@RequestMapping("")
 	public ModelAndView home(ModelAndView mv) {
-		mv.setViewName("home");
+		mv.setViewName("index");
 		return mv;
 	}
-	@RequestMapping("/welcome")
+	@RequestMapping("/login_signup")
 	public ModelAndView welcome(ModelAndView mv) {
-		mv.setViewName("welcome");
+		mv.setViewName("login_signup");
 		return mv;
 	}
 	
@@ -60,7 +61,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ResponseEntity<Void> userPerson(@RequestBody User user, UriComponentsBuilder builder) {
+	public ResponseEntity<Void> addUser(@ModelAttribute User user, UriComponentsBuilder builder) {
 		boolean flag = userService.addUser(user);
 		if (flag == false) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
@@ -84,7 +85,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/userlogin", method = RequestMethod.POST)
 	public ResponseEntity<List<User>> userLogin(@RequestBody User user, HttpSession sessionObj){
-		List<User> account = userService.login(user.getPassword(), user.getEmail());
+		List<User> account = userService.login(user.getPassword(), user.getUsername());
 	
 		
 		String isValid = user.getPassword();

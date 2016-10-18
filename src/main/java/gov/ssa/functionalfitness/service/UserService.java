@@ -44,8 +44,8 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public List<User> login(String password, String email) {
-		return userDAO.login(password, email);
+	public List<User> login(String password, String username) {
+		return userDAO.login(password, username);
 	}
 
 }
