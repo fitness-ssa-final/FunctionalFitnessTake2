@@ -17,11 +17,14 @@ import gov.ssa.functionalfitness.entity.User;
 @EnableTransactionManagement
 public class DbConfig {
 
+	//Making Hibernate session
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
 	}
 
+	
+	//DB Creds
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();

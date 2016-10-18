@@ -39,10 +39,9 @@ $("#equipment-submit").click(function() {
             }
 
         });
+    }).then(function() {
+      $('#exerciseTable').DataTable();
     });
 
-    setTimeout(function() {
-        $('#exerciseTable').DataTable();
-      },3500);
 
 });

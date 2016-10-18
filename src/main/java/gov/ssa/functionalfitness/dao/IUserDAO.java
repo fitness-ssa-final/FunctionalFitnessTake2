@@ -16,7 +16,7 @@ public interface IUserDAO {
 
 	void deleteUser(int profileID);
 	
-	List<User> login(String password, String email);
+	List<User> login(String password, String username);
 
 }
 

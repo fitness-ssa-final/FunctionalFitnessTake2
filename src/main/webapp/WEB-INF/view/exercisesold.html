@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <title>Functional f.IT.ness</title>
         <meta charset="utf-8">
-        <title></title>
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
+        <h1>Select The Equipment You Have Available
+        </h1>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="1"/>Barbell<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="2"/>SZ-Bar<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="3"/>Dumbbell<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="4"/>Gym Mat/Floor<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="6"/>Pull-up Bar<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="8"/>Bench<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="9"/>Incline Bench<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="10"/>Kettlebell<br/>
+        <input class="equipment" type="checkbox"  name="equipment[]" value="7"/>No Equipment Available<br/>
+
+        <button type="submit" name="equipment-submit" class="btn btn-success" id="equipment-submit">Submit</button>
+        <button type="submit" name="reset-table" class="btn btn-danger" id="reset-table">Reset</button>
+        <hr>
+
         <table id="exerciseTable" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
