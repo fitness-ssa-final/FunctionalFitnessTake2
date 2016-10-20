@@ -24,23 +24,24 @@ import gov.ssa.functionalfitness.service.IUserService;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value = "/functionalfitness")
 public class HomeController {
 
+	//Bringing in User Services
 	@Autowired
 	private IUserService userService;
-
+	
+	//Where the site will go when path is entered. Most will be blocked due to spring security.
 	@RequestMapping("")
 	public ModelAndView home(ModelAndView mv) {
 		mv.setViewName("index");
 		return mv;
 	}
+	
 	@RequestMapping("/login_signup")
 	public ModelAndView welcome(ModelAndView mv) {
 		mv.setViewName("login_signup");
 		return mv;
 	}
-	
 
 	@RequestMapping("/exercises")
 	public ModelAndView exercises(ModelAndView mv) {
@@ -54,21 +55,21 @@ public class HomeController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminuser", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> users = userService.getAllUsers();
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ResponseEntity<Void> addUser(@ModelAttribute User user, UriComponentsBuilder builder) {
+	public String addUser(@ModelAttribute User user, UriComponentsBuilder builder) {
 		boolean flag = userService.addUser(user);
-		if (flag == false) {
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}
+//		if (flag == false) {
+//			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+//		}
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(builder.path("/user/{id}").buildAndExpand(user.getProfileID()).toUri());
-		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+		return "login_signup";
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
@@ -82,7 +83,7 @@ public class HomeController {
 		userService.deleteUser(profileID);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
-	
+	//User auth
 	@RequestMapping(value = "/login_signup", method = RequestMethod.POST)
 	public ResponseEntity<List<User>> userLogin(@RequestBody User user, HttpSession sessionObj){
 		List<User> account = userService.login(user.getPassword(), user.getUsername());

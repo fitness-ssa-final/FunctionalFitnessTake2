@@ -11,6 +11,7 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
+	// Setting up spring and thymeleaf templates for web page type.
 	@Bean
 	public SpringTemplateEngine getTemplateEngine() {
 		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -34,13 +35,14 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
-	
-	 @Override
-	    public void addViewControllers(ViewControllerRegistry registry) {
-	        registry.addViewController("index").setViewName("index");
-	        registry.addViewController("/").setViewName("index");
-	        registry.addViewController("/exercises").setViewName("exercises");
-	        registry.addViewController("/login_signup").setViewName("login_signup");
-	    }
 
+	// Adding view controllers for spring security.
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("index").setViewName("index");
+		registry.addViewController("/").setViewName("index");
+		registry.addViewController("/functionalfitness").setViewName("index");
+		registry.addViewController("/exercises").setViewName("exercises");
+		registry.addViewController("/login_signup").setViewName("login_signup");
+	}
 }
