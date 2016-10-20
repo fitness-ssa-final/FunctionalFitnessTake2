@@ -2,11 +2,14 @@ package gov.ssa.functionalfitness.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +32,15 @@ public class HomeController {
 
 	@RequestMapping("")
 	public ModelAndView home(ModelAndView mv) {
-		mv.setViewName("home");
+		mv.setViewName("index");
 		return mv;
 	}
+	@RequestMapping("/login_signup")
+	public ModelAndView welcome(ModelAndView mv) {
+		mv.setViewName("login_signup");
+		return mv;
+	}
+	
 
 	@RequestMapping("/exercises")
 	public ModelAndView exercises(ModelAndView mv) {
@@ -52,7 +61,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ResponseEntity<Void> userPerson(@RequestBody User user, UriComponentsBuilder builder) {
+	public ResponseEntity<Void> addUser(@ModelAttribute User user, UriComponentsBuilder builder) {
 		boolean flag = userService.addUser(user);
 		if (flag == false) {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
@@ -73,4 +82,20 @@ public class HomeController {
 		userService.deleteUser(profileID);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
+	
+	@RequestMapping(value = "/login_signup", method = RequestMethod.POST)
+	public ResponseEntity<List<User>> userLogin(@RequestBody User user, HttpSession sessionObj){
+		List<User> account = userService.login(user.getPassword(), user.getUsername());
+	
+		
+		String isValid = user.getPassword();
+		
+		if(!(account.get(0).getPassword().equals(isValid))) {
+			return new ResponseEntity<List<User>>(HttpStatus.CONFLICT);
+		}else{
+			sessionObj.setAttribute("user", account.get(0));
+			return new ResponseEntity<List<User>>(HttpStatus.OK);
+		}
+		
+	}		
 }

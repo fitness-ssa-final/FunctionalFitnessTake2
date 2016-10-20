@@ -15,4 +15,5 @@ public interface IUserService {
 
 	void deleteUser(int profile_ID);
 
+	List<User> login(String password, String username);
 }

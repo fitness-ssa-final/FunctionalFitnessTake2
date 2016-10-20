@@ -53,4 +53,11 @@ public class UserDAO implements IUserDAO {
 	public void deleteUser(int profileID) {
 		hibernateTemplate.delete(getUserById(profileID));
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> login(String password, String username) {
+		String hql = "FROM User where username = '" + username + "'";
+		return (List<User>)hibernateTemplate.find(hql);
+	}
 }

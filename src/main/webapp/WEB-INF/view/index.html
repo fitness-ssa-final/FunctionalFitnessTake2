@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Functional f.IT.ness</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<style>
+	body, h1, h2, h3, h4, h5, h6 {
+		font-family: "Comic Sans MS", cursive, sans-serif;
+	}
+
+	.w3-navbar, button, h1 {
+		font-family: "Montserrat", sans-serif;
+	}
+
+	.fa-anchor, .fa-coffee {
+		font-size: 200px;
+	}
+
+	.w3-red {
+		background-image: url("/img/Black-Brick-Wallpaper.jpg");
+	}
+
+	.w3-large {
+		box-shadow: 3px 2px 5px #000000;
+	}
+
+	.w3-text-purple {
+		font-weight: bolder;
+	}
+
+	.w3-left {
+		float: left;
+		right: 80%;
+	}
+
+	.w3-black {
+		background-image:
+			url("/img/boxing-gloves-wallpaper-13148-13605-hd-wallpapers.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	#abtus {
+		background-image: url("/img/exercise-equipment-product-image.jpg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: right;
+	}
+
+	#aoaborder {
+		border: 10px solid black;
+		border-radius: 5px;
+		padding: 10px;
+		background: url("/img/aca1d3ac625e8944f33398a56a73cfcf.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		margin-left: 20%;
+	}
+	</style>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<div class="w3-top">
+		<ul class="w3-navbar w3-red w3-card-2 w3-left-align w3-large">
+			<li class="w3-hide-medium w3-hide-large w3-opennav w3-right"><a
+				class="w3-padding-large w3-hover-white w3-large w3-red"
+				href="javascript:void(0);" onclick="myFunction()"
+				title="Toggle Navigation Menu"> <i class="fa fa-bars"></i>
+			</a></li>
+			<li><a href="/functionalfitness/index.html" class="w3-padding-large w3-white">Home</a></li>
+			<li class="w3-hide-small"><a href="/functionalfitness/login_signup.html"
+				class="w3-padding-large w3-hover-white">Log In</a></li>
+			<li><a th:href="@{/exercises}" class="w3-padding-large w3-hover-white">My
+					Exercises</a></li>
+						<form class="" th:action="@{/logout}" method="post">
+					<li>
+						<button class="btn btn-danger "w3-padding-large w3-hover-red" type="submit" name="button">Logout</button>
+								<!-- <a  class="w3-padding-large w3-hover-red btn btn-danger" role="submit" href="#">Log Out</a> -->
+					</li>
+				</form>
+
+		</ul>
+
+		<!-- Navbar on small screens -->
+		<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+			<ul class="w3-navbar w3-left-align w3-large w3-black">
+				<li><a class="w3-padding-large" href="/functionalfitness/index.html">Home</a></li>
+				<li><a class="w3-padding-large" href="/functionalfitness/login_signup.html">Log In</a></li>
+				<li><a th:href="@{/exercises}" class="w3-padding-large" href="/functionalfitness/exercises.html">My Exercises</a></li>
+							<li>
+						<a th:action="@{/logout}" method="post" class="w3-padding-large" href="/functionalfitness/login_signup.html">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Header -->
+	<header class="w3-container w3-red w3-center w3-padding-128">
+		<h1 class="w3-margin w3-jumbo" style="color: white; font-family:"
+			Lucida Sans Typewriter", " Lucida Console", Monaco, " BitstreamVeraSansMono", monospace;">
+			<span
+				style="background-size: 25%; border: 10px solid white; border-radius: 5px; background-color: black; padding: 30px; opacity: .7;">Functional
+				f.IT.ness</span>
+		</h1>
+		</div>
+	</header>
+
+	<!-- First Grid -->
+	<div id="abtus" class="w3-row-padding w3-padding-64 w3-container">
+		<div class="w3-content">
+			<div class="w3-twothird">
+				<div id="aoatxt">
+					<h1 style="color: #ffffff;">
+						<span id="aoaborder">About Our App</span>
+					</h1>
+				</div>
+				<p class="w3-text-black"
+					style="font-size: 1.3em; font-weight: bold; margin-left: 2%;">
+					Functional f.IT.ness is an application designed for use by
+					individuals who desire to engage in a challenging and fulfilling
+					workout, but may or may not have access to a gym. Users select the
+					equipment they have access to (multiple pieces of equipment all the
+					way down to no equipment/bodyweight), as well as the desired muscle
+					group they wish to target, and we create a workout plan for that
+					day according to the given input. We understand the importance of
+					breaking out of the monotonous regimen you may currently have and
+					the benefits "switching things up" has on your overall fitness and
+					well-being. We're here to challenge you along your road to
+					greatness and assist you with becomming a healthier, stronger you.
+					We're dedicated to you as long as you are dedicated to yourself!
+					Have a great workout!!!
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Second Grid -->
+	<div class="w3-row-padding w3-black w3-padding-64 w3-container">
+		<div class="w3-content">
+			<div class="w3-third w3-center">
+				<img src="/img/dumbellblk.png" class="w3-padding-64 w3-margin-left";"></i>
+			</div>
+
+			<div class="w3-twothird">
+				<h1 class="w3-padding-32">
+					<span
+						style="border: 10px solid white; border-radius: 5px; background-color: black; padding: 20px; opacity: .7;">Need
+						Some Motivation? </span>
+				</h1>
+				<img
+					style="height: 350px; width: 350px; border: 10px solid black; border-radius: 5px; background-color: white;"
+					src="/img/244af1cefcd76a9c76efaf244ebf7804.jpg">
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-container w3-padding-64 w3-center w3-opacity";">
+		<div class="w3-xlarge w3-padding-32">
+			<a href="#" class="w3-hover-text-indigo"> <i
+				class="fa fa-facebook-official"></i>
+			</a> <a href="#" class="w3-hover-text-red"> <i
+				class="fa fa-pinterest-p"></i>
+			</a> <a href="#" class="w3-hover-text-light-blue"> <i
+				class="fa fa-twitter"></i>
+			</a> <a href="#" class="w3-hover-text-grey"> <i class="fa fa-flickr"></i>
+			</a> <a href="#" class="w3-hover-text-indigo"> <i
+				class="fa fa-linkedin"></i>
+			</a>
+		</div>
+
+		<script>
+			// Used to toggle the menu on small screens when clicking on the menu button
+			function myFunction() {
+				var x = document.getElementById("navDemo");
+				if (x.className.indexOf("w3-show") == -1) {
+					x.className += " w3-show";
+				} else {
+					x.className = x.className.replace(" w3-show", "");
+				}
+			}
+		</script>
+</body>
+</html>

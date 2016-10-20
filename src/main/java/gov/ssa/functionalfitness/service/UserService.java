@@ -43,4 +43,9 @@ public class UserService implements IUserService {
 		userDAO.deleteUser(profileID);
 	}
 
+	@Override
+	public List<User> login(String password, String username) {
+		return userDAO.login(password, username);
+	}
+
 }

@@ -15,5 +15,8 @@ public interface IUserDAO {
 	void updateUser(User user);
 
 	void deleteUser(int profileID);
+	
+	List<User> login(String password, String username);
 
 }
+

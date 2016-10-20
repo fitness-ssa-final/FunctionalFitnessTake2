@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Making a user object.
+
 @Entity
 @Table(name = "user_profile")
 public class User implements Serializable {
@@ -34,13 +36,13 @@ public class User implements Serializable {
 	@Column(name = "user_equipment")
 	private String equipment;
 
-	@Column(name = "user_age", nullable = true)
+	@Column(name = "user_age")
 	private int age;
 
-	@Column(name = "user_weight", nullable = true)
+	@Column(name = "user_weight")
 	private double weight;
 
-	@Column(name = "user_sex", nullable = true)
+	@Column(name = "user_sex")
 	private String sex;
 
 	public int getProfileID() {

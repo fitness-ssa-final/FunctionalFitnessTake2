@@ -11,6 +11,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
+		// Starting Spring Boot App
 		SpringApplication.run(Application.class, args);
 	}
 
