@@ -27,20 +27,20 @@
 				<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
 				<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
 					id="tologin"></a>
-					
-					
+
+
 					<div th:if="${param.error}">
 			            Invalid username and password.
 			        </div>
 			        <div th:if="${param.logout}">
 			            You have been logged out.
 			        </div>
-			        
+
 				<div id="wrapper">
 					<div id="login" class="animate form">
-					
-					
-					
+
+
+
 						<form th:action="@{/login_signup}" autocomplete="on" method="post">
 							<h1>Log in</h1>
 							<p>
@@ -64,7 +64,7 @@
 					</div>
 					<!-- Register new user form -->
 					<div id="register" class="animate form">
-						<form id="register_user_form" action="/functionalfitness/user" id="signup"
+						<form id="register_user_form" action="/user" id="signup"
 							autocomplete="on" method="post">
 							<h1>Sign up</h1>
 							<p>

@@ -64,28 +64,35 @@ a {
 				href="javascript:void(0);" onclick="myFunction()"
 				title="Toggle Navigation Menu"> <i class="fa fa-bars"></i>
 			</a></li>
-			<li><a href="/functionalfitness"
-				class="w3-padding-large w3-white">Home</a></li>
-			<li><a href="/functionalfitness/exercises.html"
-				class="w3-padding-large w3-hover-white">My Exercises</a></li>
-			<li class="w3-hide-small"><a href="#"
-				class="w3-padding-large w3-hover-white">Edit Profile</a></li>
-			<li><a class="w3-padding-large"
-				href="/functionalfitness/login_signup.html">Log Out</a></li>
-		</ul>
+
+			<li><a href="/" class="w3-padding-large w3-white">Home</a></li>
+
+			<li class="w3-hide-small"><a href="/login_signup.html"
+				class="w3-padding-large w3-hover-white">Log In</a></li>
+
+			<li ><a th:href="@{/exercises}" class="w3-padding-large w3-hover-white">My
+					Exercises</a></li>
+
+						<form class="" th:action="@{/logout}" method="post">
+					<li style="position:absolute;top:0;right:0;">
+						<button class="btn btn-danger "w3-padding-large w3-hover-red" type="submit" name="button">Logout</button>
+								<!-- <a  class="w3-padding-large w3-hover-red btn btn-danger" role="submit" href="#">Log Out</a> -->
+					</li>
+				</form>
+			</ul>
 
 		<!-- Navbar on small screens -->
 		<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
-			<ul class="w3-navbar w3-left-align w3-large w3-black"
-				font-color="white">
-				<li><a class="w3-padding-large" href="/functionalfitness">Home</a>
-				</li>
-				<li><a class="w3-padding-large"
-					href="/functionalfitness/exercises.html">My Exercises</a></li>
-				<li class="w3-hide-small"><a href="#"
-					class="w3-padding-large w3-hover-white">Edit Profile</a></li>
-				<li><a class="w3-padding-large"
-					href="/functionalfitness/login_signup.html">Log Out</a></li>
+			<ul class="w3-navbar w3-left-align w3-large w3-black">
+				<li><a class="w3-padding-large" href="href="/">Home</a></li>
+				<li><a class="w3-padding-large" href="/login_signup.html">Log In</a></li>
+				<li><a th:href="@{/exercises}" class="w3-padding-large">My Exercises</a></li>
+				<form class="" th:action="@{/logout}" method="post">
+			<li style="position:absolute;top:0;right:0;">
+				<button class="btn btn-danger "w3-padding-large w3-hover-red" type="submit" name="button">Logout</button>
+						<!-- <a  class="w3-padding-large w3-hover-red btn btn-danger" role="submit" href="#">Log Out</a> -->
+			</li>
+		</form>
 			</ul>
 		</div>
 	</div>
@@ -96,7 +103,7 @@ a {
 			Lucida SansTypewriter", " LucidaConsole", Monaco, " BitstreamVeraSansMono", monospace;">
 			<span
 				style="background-size: 25%; border: 10px solid white; border-radius: 5px; background-color: black; padding: 30px; opacity: .7;">Functional
-				f.IT.ness 
+				f.IT.ness
 		</h1>
 		</div>
 	</header>
