@@ -1,42 +1,46 @@
+//Reload page when "Reset" is clicked
 $("#reset-table").click(function() {
     location.reload();
 });
 
+//Do this when submit button is pressed
 $("#equipment-submit").click(function() {
 
-    //$("#tableData").empty();
-
-    //equipment selectd
+    //Equipment selected
     var equipment = $(".equipment:checked");
-    //plaeholder for all workout data
+    //Placeholder for all workout data
     var exerciseData = [];
-    //place to store all my promises
+    //Place to store all my promises
     var promises = [];
+    //Place to store all equipment text
     var equipmentText=[];
 
-    //loop over the equipment and make API calls
+    //Loop over the equipment and make API calls. Store in 'exerciseData' array
     equipment.each(function() {
         var def = new $.Deferred();
         $.get("https://wger.de/api/v2/exercise.json/?language=2&limit=999&status=2&equipment=" + $(this).val(), function(data) {
 
-            //loop over the reusles and add the relevent piece to the exercise data array
+            //Loop over the API results and add the relevent piece to the exercise data array
             $.each(data.results, function(key, val) {
                 exerciseData.push(val);
             });
+
             exerciseData.push(data.results);
-            //let it know the promise is resolved
+            //Let it know the promise is resolved
             def.resolve();
         });
 
-
-
-        //push promise into promises array
+        //Add promise to promises array
         promises.push(def);
     });
 
-    //do this when all promies have completed
+    //Do this when all promies have completed
     $.when.apply($, promises).then(function() {
+
+      //Loop over 'exceriseData' array
         $.each(exerciseData, function(key, val) {
+
+          //If the 'name' area has somthing in it then replace it with the text in the switch statment
             if (typeof val.name != 'undefined') {
                 switch (val.category) {
                     case 10:
@@ -70,9 +74,11 @@ $("#equipment-submit").click(function() {
                     default:
                 }
 
+                //Loop over equipment array and replace with text below
                 $.each(val.equipment,function(key,val) {
 
-                  switch (val) {                      case 1:
+                  switch (val) {
+                      case 1:
                           equipmentText.push("Barbell") ;
                           break;
 
@@ -107,21 +113,19 @@ $("#equipment-submit").click(function() {
                           equipmentText.push( "SZ-Bar");
                           break;
                       default:
-
                   }
-
                 });
-
-
+                //Add this to the data table.
                 $('#tableData').append("<tr><td>" + val.name + "</td><td>" + val.description + "</td><td>" + val.category + "</td><td>" + equipmentText + "</td></tr>");
 
+                //clear the equipmentText array
                 equipmentText=[];
             }
-
         });
-    }).then(function() {
+    })
+
+    //After those promises are completed format the table.
+    .then(function() {
         $('#exerciseTable').DataTable();
     });
-
-
 });

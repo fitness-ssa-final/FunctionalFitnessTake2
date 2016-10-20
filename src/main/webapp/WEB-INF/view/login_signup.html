@@ -1,135 +1,230 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
-<!--[if IE 7 ]> <html lang="en" class="no-js ie7 lt8"> <![endif]-->
-<!--[if IE 8 ]> <html lang="en" class="no-js ie8 lt8"> <![endif]-->
-<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<!--<![endif]-->
-<head>
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-<title>f.IT.ness Identity Verification</title>
+    <head>
+        <title>Functional f.IT.ness</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
+        <style>
+            body,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "Comic Sans MS", cursive, sans-serif;
+            }
 
-<link rel="stylesheet" type="text/css" href="/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/css/animate-custom.css" />
-</head>
-<body>
-	<div class="container">
-		<header>
-			<h1>
-				Login or Register <span>and enter </span>Functional
-				f.IT.ness
-			</h1>
-		</header>
-		<section>
-			<div id="container_demo">
-				<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-				<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
-					id="tologin"></a>
-					
-					
-					<div th:if="${param.error}">
-			            Invalid username and password.
-			        </div>
-			        <div th:if="${param.logout}">
-			            You have been logged out.
-			        </div>
-			        
-				<div id="wrapper">
-					<div id="login" class="animate form">
-					
-					
-					
-						<form th:action="@{/login_signup}" autocomplete="on" method="post">
-							<h1>Log in</h1>
-							<p>
-								<label for="username" class="uname" data-icon="u"> Your
-									username </label> <input id="username" name="username"
-									required="required" type="text" placeholder="myusername" />
-							</p>
-							<p>
-								<label for="password" class="youpasswd" data-icon="p">
-									Your password </label> <input id="password" name="password"
-									required="required" type="password" placeholder="eg. X8df!90EO" />
-							</p>
-							<p class="login button">
-								<input type="submit" value="Login" />
-							</p>
-							<p class="change_link">
-								Not a member yet? <a href="#toregister" class="to_register">Sign
-									up</a>
-							</p>
-						</form>
-					</div>
-					<!-- Register new user form -->
-					<div id="register" class="animate form">
-						<form id="register_user_form" action="/functionalfitness/user" id="signup"
-							autocomplete="on" method="post">
-							<h1>Sign up</h1>
-							<p>
-								<label for="user_first_name" class="user_first_name"
-									data-icon="u">Your First Name</label> <input
-									id="user_first_name" name="firstName" required="required"
-									type="text" placeholder="First Name" />
-							</p>
-							<p>
-								<label for="user_last_name" class="user_last_name" data-icon="u">Your
-									Last Name</label> <input id="user_last_name" name="lastName"
-									required="required" type="text" placeholder="Last Name" />
-							</p>
-							<p>
-								<label for="usernamesignup" class="uname" data-icon="u">Your
-									username</label> <input id="usernamesignup" name="username"
-									required="required" type="text"
-									placeholder="mysuperusername690" />
-							</p>
-							<p>
-								<label for="emailsignup" class="youmail" data-icon="e">Your
-									email</label> <input id="emailsignup" name="email" required="required"
-									type="email" placeholder="mysupermail@mail.com" />
-							</p>
-							<p>
-								<label for="passwordsignup" class="youpasswd" data-icon="p">Your
-									password</label> <input id="passwordsignup" name="password"
-									required="required" type="password" placeholder="eg. X8df!90EO" />
-							</p>
-							<p>
-								<label for="passwordsignup_confirm" class="youpasswd"
-									data-icon="p">Please confirm your password</label> <input
-									id="passwordsignup_confirm" name="passwordsignup_confirm"
-									required="required" type="password" oninput="check(this)"
-									placeholder="eg. X8df!90EO" />
-							</p>
-							<!-- script block for password confirmation match -->
-							<script language='javascript' type='text/javascript'>
-								function check(input) {
-									if (input.value != document
-											.getElementById('passwordsignup').value) {
-										input
-												.setCustomValidity('Passwords must match.');
-									} else {
-										// input is valid -- reset the error message
-										input.setCustomValidity('');
-									}
-								}
-							</script>
-							<p class="signin button">
-								<input type="submit" button id="submitButton" value="Sign up" />
-							</p>
-							<p class="change_link">
-								Already a member? <a href="#tologin" class="to_register"> Go
-									and log in </a>
-							</p>
+            .w3-navbar,
+            button,
+            h1 {
+                font-family: "Montserrat", sans-serif;
+            }
 
-						</form>
-						<script
-							src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+            .fa-anchor,
+            .fa-coffee {
+                font-size: 200px;
+            }
 
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+            .w3-red {
+                background-image: url("/img/Black-Brick-Wallpaper.jpg");
+            }
+
+            .w3-large {
+                box-shadow: 3px 2px 5px #000000;
+            }
+
+            .w3-text-purple {
+                font-weight: bolder;
+            }
+
+            .w3-left {
+                float: left;
+                right: 80%;
+            }
+
+            .w3-black {
+                background-image: url("/img/boxing-gloves-wallpaper-13148-13605-hd-wallpapers.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #abtus {
+                background-image: url("/img/exercise-equipment-product-image.jpg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right;
+            }
+
+            #aoaborder {
+                border: 10px solid black;
+                border-radius: 5px;
+                padding: 10px;
+                background: url("/img/aca1d3ac625e8944f33398a56a73cfcf.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-left: 20%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+        <div class="w3-top">
+            <ul class="w3-navbar w3-red w3-card-2 w3-left-align w3-large">
+                <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+                    <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/" class="w3-padding-large w3-white">Home</a>
+                </li>
+
+
+            </ul>
+
+            <!-- Navbar on small screens -->
+            <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+                <ul class="w3-navbar w3-left-align w3-large w3-black">
+                    <li>
+                        <a class="w3-padding-large" href="/functionalfitness/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="w3-padding-large" href="/functionalfitness/login_signup.html">Log In</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/exercises}" class="w3-padding-large" href="/functionalfitness/exercises.html">My Exercises</a>
+                    </li>
+                    <li>
+                        <a th:action="@{/logout}" method="post" class="w3-padding-large" href="/functionalfitness/login_signup.html">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section>
+          <div id="container_demo">
+            <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+            <a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+              id="tologin"></a>
+
+
+              <div th:if="${param.error}">
+                      Invalid username and password.
+                  </div>
+                  <div th:if="${param.logout}">
+                      You have been logged out.
+                  </div>
+
+            <div id="wrapper">
+              <div id="login" class="animate form">
+
+
+
+                <form th:action="@{/login_signup}" autocomplete="on" method="post">
+                  <h1>Log in</h1>
+                  <p>
+                    <label for="username" class="uname" data-icon="u"> Your
+                      username </label> <input id="username" name="username"
+                      required="required" type="text" placeholder="myusername" />
+                  </p>
+                  <p>
+                    <label for="password" class="youpasswd" data-icon="p">
+                      Your password </label> <input id="password" name="password"
+                      required="required" type="password" placeholder="eg. X8df!90EO" />
+                  </p>
+                  <p class="login button">
+                    <input type="submit" value="Login" />
+                  </p>
+                  <p class="change_link">
+                    Not a member yet? <a href="#toregister" class="to_register">Sign
+                      up</a>
+                  </p>
+                </form>
+              </div>
+              <!-- Register new user form -->
+              <div id="register" class="animate form">
+                <form id="register_user_form" action="/user" id="signup"
+                  autocomplete="on" method="post">
+                  <h1>Sign up</h1>
+                  <p>
+                    <label for="user_first_name" class="user_first_name"
+                      data-icon="u">Your First Name</label> <input
+                      id="user_first_name" name="firstName" required="required"
+                      type="text" placeholder="First Name" />
+                  </p>
+                  <p>
+                    <label for="user_last_name" class="user_last_name" data-icon="u">Your
+                      Last Name</label> <input id="user_last_name" name="lastName"
+                      required="required" type="text" placeholder="Last Name" />
+                  </p>
+                  <p>
+                    <label for="usernamesignup" class="uname" data-icon="u">Your
+                      username</label> <input id="usernamesignup" name="username"
+                      required="required" type="text"
+                      placeholder="mysuperusername690" />
+                  </p>
+                  <p>
+                    <label for="emailsignup" class="youmail" data-icon="e">Your
+                      email</label> <input id="emailsignup" name="email" required="required"
+                      type="email" placeholder="mysupermail@mail.com" />
+                  </p>
+                  <p>
+                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your
+                      password</label> <input id="passwordsignup" name="password"
+                      required="required" type="password" placeholder="eg. X8df!90EO" />
+                  </p>
+                  <p>
+                    <label for="passwordsignup_confirm" class="youpasswd"
+                      data-icon="p">Please confirm your password</label> <input
+                      id="passwordsignup_confirm" name="passwordsignup_confirm"
+                      required="required" type="password" oninput="check(this)"
+                      placeholder="eg. X8df!90EO" />
+                  </p>
+                  <!-- script block for password confirmation match -->
+                  <script language='javascript' type='text/javascript'>
+                    function check(input) {
+                      if (input.value != document
+                          .getElementById('passwordsignup').value) {
+                        input
+                            .setCustomValidity('Passwords must match.');
+                      } else {
+                        // input is valid -- reset the error message
+                        input.setCustomValidity('');
+                      }
+                    }
+                  </script>
+                  <p class="signin button">
+                    <input type="submit" button id="submitButton" value="Sign up" />
+                  </p>
+                  <p class="change_link">
+                    Already a member? <a href="#tologin" class="to_register"> Go
+                      and log in </a>
+                  </p>
+
+                </form>
+                <script
+                  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+
 </body>
+<script type="text/javascript">
+  $('#submitButton').click(function(){window.location.href='localhost:8080/login_signup'});
+
+</script>
 </html>
