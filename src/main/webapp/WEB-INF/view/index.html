@@ -82,9 +82,7 @@
 				class="w3-padding-large w3-hover-white">Log In</a></li>
 			<li><a th:href="@{/exercises}" class="w3-padding-large w3-hover-white">My
 					Exercises</a></li>
-			<li class="w3-hide-small"><a href="#"
-				class="w3-padding-large w3-hover-white">Edit Profile</a></li>
-				<form class="" th:action="@{/logout}" method="post">
+						<form class="" th:action="@{/logout}" method="post">
 					<li>
 						<button class="btn btn-danger "w3-padding-large w3-hover-red" type="submit" name="button">Logout</button>
 								<!-- <a  class="w3-padding-large w3-hover-red btn btn-danger" role="submit" href="#">Log Out</a> -->
@@ -99,8 +97,7 @@
 				<li><a class="w3-padding-large" href="/functionalfitness/index.html">Home</a></li>
 				<li><a class="w3-padding-large" href="/functionalfitness/login_signup.html">Log In</a></li>
 				<li><a th:href="@{/exercises}" class="w3-padding-large" href="/functionalfitness/exercises.html">My Exercises</a></li>
-				<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white">Edit Profile</a></li>
-				<li>
+							<li>
 						<a th:action="@{/logout}" method="post" class="w3-padding-large" href="/functionalfitness/login_signup.html">Log Out</a>
 				</li>
 			</ul>
