@@ -83,7 +83,7 @@ public class HomeController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 	
-	@RequestMapping(value = "/userlogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/login_signup", method = RequestMethod.POST)
 	public ResponseEntity<List<User>> userLogin(@RequestBody User user, HttpSession sessionObj){
 		List<User> account = userService.login(user.getPassword(), user.getUsername());
 	

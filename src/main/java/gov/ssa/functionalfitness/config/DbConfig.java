@@ -17,15 +17,14 @@ import gov.ssa.functionalfitness.entity.User;
 @EnableTransactionManagement
 public class DbConfig {
 
-	//Making Hibernate session
+	//Making Hibernate template for session
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
 	}
-
 	
 	//DB Creds
-	@Bean
+	@Bean(name="dataSource")
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -34,12 +33,14 @@ public class DbConfig {
 		dataSource.setPassword("sesame");
 		return dataSource;
 	}
-
+	
+	//Making Hibernate Session
 	@Bean
 	public SessionFactory sessionFactory() {
 		return new LocalSessionFactoryBuilder(getDataSource()).addAnnotatedClasses(User.class).buildSessionFactory();
 	}
-
+	
+	//Setting up hibernate transactions for DB actions
 	@Bean
 	public HibernateTransactionManager hibTransMan() {
 		return new HibernateTransactionManager(sessionFactory());

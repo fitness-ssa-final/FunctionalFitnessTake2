@@ -3,7 +3,6 @@
 <head>
 	<title>Functional f.IT.ness</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Lato">
@@ -82,11 +81,15 @@
 				class="w3-padding-large w3-hover-white">Log In</a></li>
 			<li><a th:href="@{/exercises}" class="w3-padding-large w3-hover-white">My
 					Exercises</a></li>
-						<form class="" th:action="@{/logout}" method="post">
-					<li>
-						<button class="btn btn-danger "w3-padding-large w3-hover-red" type="submit" name="button">Logout</button>
-								<!-- <a  class="w3-padding-large w3-hover-red btn btn-danger" role="submit" href="#">Log Out</a> -->
-					</li>
+			<li class="w3-hide-small"><a href="#"
+				class="w3-padding-large w3-hover-white">Edit Profile</a></li>
+				<form class="" th:action="@{/logout}" method="post">
+					<!-- <li>
+								<a  class="w3-padding-large" href="/functionalfitness/login_signup.html">Log Out</a>
+					</li> -->
+					<!-- <button type="submit" class="btn-lg btn-danger">
+
+					</button> -->
 				</form>
 
 		</ul>
@@ -97,9 +100,10 @@
 				<li><a class="w3-padding-large" href="/functionalfitness/index.html">Home</a></li>
 				<li><a class="w3-padding-large" href="/functionalfitness/login_signup.html">Log In</a></li>
 				<li><a th:href="@{/exercises}" class="w3-padding-large" href="/functionalfitness/exercises.html">My Exercises</a></li>
-							<li>
-						<a th:action="@{/logout}" method="post" class="w3-padding-large" href="/functionalfitness/login_signup.html">Log Out</a>
-				</li>
+				<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white">Edit Profile</a></li>
+				<!-- <li>
+				<button type="button" th:action="@{/logout}" method="post" class="btn btn-warning navbar-btn" "w3-padding-large" a href="/functionalfitness/login_signup.html">Log Out</a>
+				</li> -->
 			</ul>
 		</div>
 	</div>
